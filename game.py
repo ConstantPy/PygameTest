@@ -27,10 +27,12 @@ print(player.get(Sprite).image.get_height())
 print(Player.sprite_dimensions)
 print(player.components[0])
 
+# Assigns a tile sprite to it number in a list, this gets completely changed in the tutorial later on
 tile_kinds = [
     TileKind("transparent", "images/celiannatilea5/C5-00002.png", False),
     TileKind("playerhousefloor", "images/celiannatilea5/C5-0000040.png", False)
 ]
+
 
 tile_kinds_layer = [
     TileKind("transparent", "images/celiannatilea5/C5-00002.png", False),
@@ -40,6 +42,7 @@ tile_kinds_layer = [
     TileKind("dwnmidright", "images/celiannaclutterwalls2/CCW2-00000015.png", False),
 ]
 
+# Map class that calls a .map file represented in numbers, assigns the layer, then tile sprite size, as mentioned, this is changed in the tutorial
 map = Map("maps/start.map", tile_kinds, 32)
 map_layer = Map("maps/start_layer_1.map", tile_kinds_layer, 16)
 
@@ -72,5 +75,6 @@ while running:
     pygame.display.flip()
 
 pygame.quit()
+
 
 
