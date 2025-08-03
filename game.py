@@ -13,18 +13,18 @@ running = True
 clock = pygame.time.Clock()
 fps = 60
 
-# player_sprite = player.get(Sprite).image
-# player_sprite_width, player_sprite_height = player_sprite.get_size()
-# print(f"Width: {player_sprite_width}, Height: {player_sprite_height}")
-
-print(Player.sprite_dimensions)
-
 player = Entity(Player(), Sprite("images/player.png"), x = screen.get_width()/2, y = screen.get_height()/2)
 
+### Print statements of me trying figure out how to reference Sprite("images/player.png") dimensions,
+### to get true image center in the player = entity(x = screen.get_width()/2, y = screen.get_height()/2),
+### I assume I have to do and reference something in player.py (or even in the entity.py) to achieve this and call it before the player = Entity()
 print(player.get(Sprite).image)
 print(player.get(Sprite).image.get_width())
 print(player.get(Sprite).image.get_height())
-
+# player_sprite = player.get(Sprite).image
+# player_sprite_width, player_sprite_height = player_sprite.get_size()
+# print(f"Width: {player_sprite_width}, Height: {player_sprite_height}")
+print(Player.sprite_dimensions)
 print(player.components[0])
 
 tile_kinds = [
@@ -72,3 +72,4 @@ while running:
     pygame.display.flip()
 
 pygame.quit()
+
