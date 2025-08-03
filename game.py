@@ -15,9 +15,9 @@ fps = 60
 
 player = Entity(Player(), Sprite("images/player.png"), x = screen.get_width()/2, y = screen.get_height()/2)
 
-### Print statements of me trying figure out how to reference Sprite("images/player.png") dimensions,
-### to get true image center in the player = entity(x = screen.get_width()/2, y = screen.get_height()/2),
-### I assume I have to do and reference something in player.py (or even in the entity.py) to achieve this and call it before the player = Entity()
+### Print statements of me trying figure out how to reference Sprite("images/player.png") dimensions-
+### -to get true image center in the player = entity(x = screen.get_width()/2, y = screen.get_height()/2)
+### I assume I have to do and reference something in player.py (or even in entity.py) to achieve this and call it before the player = Entity()
 print(player.get(Sprite).image)
 print(player.get(Sprite).image.get_width())
 print(player.get(Sprite).image.get_height())
@@ -72,4 +72,5 @@ while running:
     pygame.display.flip()
 
 pygame.quit()
+
 
