@@ -46,6 +46,7 @@ tile_kinds_layer = [
 map = Map("maps/start.map", tile_kinds, 32)
 map_layer = Map("maps/start_layer_1.map", tile_kinds_layer, 16)
 
+# For a future collision test
 flipped_player = Entity(Sprite("images/playerflipped.png"), x = 32 * 18,y = 32 * 18)
 
 # Game loop
@@ -75,6 +76,7 @@ while running:
     pygame.display.flip()
 
 pygame.quit()
+
 
 
 
