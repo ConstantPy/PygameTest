@@ -21,7 +21,7 @@ player_width = player_sprite.image.get_width()
 player_height = player_sprite.image.get_height()
 
 # Player entity with true centered sprite
-player = Entity(player_instance, player_sprite, x=screen.get_width()/2 - player_width/2, y=screen.get_height()/2 - player_height/2)
+player = Entity(Player(), player_sprite, x=screen.get_width()/2 - player_width/2, y=screen.get_height()/2 - player_height/2)
 
 # Assigns a tile sprite to it number in a list, this gets completely changed in the tutorial later on
 tile_kinds = [
@@ -72,6 +72,7 @@ while running:
     pygame.display.flip()
 
 pygame.quit()
+
 
 
 
