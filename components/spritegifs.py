@@ -2,7 +2,7 @@ import pygame
 import gif_pygame
 from core.camera import camera
 
-gif_path = "content/gif"
+gif_path = "content/gifs"
 
 loaded = {}
 
@@ -44,4 +44,5 @@ class SpriteAnimated:
                 (self.entity.x, self.entity.y)
 
         screen.blit(self.gif.blit_ready(), pos)
+
 
