@@ -1,22 +1,40 @@
 import pygame
-from camera import camera
+from core.camera import camera
 
-sprites = []
+image_path = "content/images"
+gif_path = "content/gif"
+
 loaded = {}
 
 class Sprite:
-    def __init__(self, image):
-        # If: Uses images in memory
-        # Else: Loads new images not in memory
+    def __init__(self, image, is_ui = False, has_rotation = False):
+        from core.engine import engine
+        global sprites
         if image in loaded:
             self.image = loaded[image]
         else:
-            self.image = pygame.image.load(image).convert_alpha()
+            self.image = pygame.image.load(image_path + "/" + image)
             loaded[image] = self.image
-        sprites.append(self)
+
+        self.num_loaded = len(loaded)
+        self.loaded_width, self.loaded_height = loaded.get(image).get_width(), loaded.get(image).get_height()
+
+        for i in loaded:
+            pygame.draw.rect(loaded.get(image), "green", [0, 0, self.loaded_width, self.loaded_height], 2)
+
+        if is_ui:
+            engine.ui_drawables.append(self)
+        else:
+            engine.drawables.append(self)
+
+        self.is_ui = is_ui
 
     def delete(self):
-        sprites.remove(self)
+        from core.engine import engine
+        engine.drawables.remove(self)
 
     def draw(self, screen):
-        screen.blit(self.image, (self.entity.x - camera.x, self.entity.y - camera.y))
+        pos = (self.entity.x - camera.x, self.entity.y - camera.y) \
+                if not self.is_ui else \
+                (self.entity.x, self.entity.y)
+        screen.blit(self.image, pos)
