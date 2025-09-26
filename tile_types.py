@@ -1,7 +1,8 @@
 from core.map import TileKind
-
+# Bool determines if the tile has collision
 tile_kinds = [
-    TileKind("transparent", "celiannatilea5/C5-00002.png", True),
-    TileKind("playerhousefloor", "celiannatilea5/C5-0000040.png", False),
-    TileKind("floorr&btiling", "celiannatilea5/C5-000016.png", False)
+    TileKind("alt name", "tile image file goes here", True),
+    TileKind("alt name", "tile image file goes here", False),
+    TileKind("alt name", "tile image file goes here", False)
+
 ]
