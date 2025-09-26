@@ -17,6 +17,7 @@ class SpriteAnimated:
             self.gif = gif_pygame.load(gif_path + "/" + gif)
             loaded[gif] = self.gif
 
+        # The following up until the for loop is me trying to figure out how to draw a rect around each frame of the gif
         self.loaded_width, self.loaded_height = loaded.get(gif).get_width(), loaded.get(gif).get_height()
         self.gif_surfaces = self.gif.get_surfaces()
         self.gif_surfaces
@@ -40,4 +41,5 @@ class SpriteAnimated:
         pos = (self.entity.x - camera.x, self.entity.y - camera.y) \
                 if not self.is_ui else \
                 (self.entity.x, self.entity.y)
+
         screen.blit(self.gif.blit_ready(), pos)
