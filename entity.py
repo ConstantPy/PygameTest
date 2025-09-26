@@ -1,16 +1,14 @@
-active_objs = []
-
 class Entity:
     def __init__(self, *components, x=0, y=0):
         self.components = []
-        for component in components:
-            self.add(component)
         self.x = x
         self.y = y
+        for component in components:
+            self.add(component)
 
     def add(self, component):
-        self.components.append(component)
         component.entity = self
+        self.components.append(component)
 
     def remove(self, component_class):
         component = self.get(component_class)
@@ -22,7 +20,7 @@ class Entity:
         for component in self.components:
             if isinstance(component, component_class):
                 return True
-            return False
+        return False
 
     def get(self, component_class):
         for component in self.components:
