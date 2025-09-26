@@ -7,18 +7,18 @@ from components.teleporter import Teleporter
 from components.spritegifs import SpriteAnimated
 
 # Some notes, entity(Player()) is bound to the tile size of 32x32, going any higher results in collision irregularites, been trying to figure out how to be able to go beyond 32 x 32
-
+# Update the Body() to match the corresponding image size and width (last two of the four)
 entity_factories = [
 
-    lambda args: Entity(Player(), Sprite("player image goes here"), Body(0, 0, 31, 31)),
+    lambda args: Entity(Player(), Sprite("player image goes here"), Body(0, 0, 0, 0)),
 
-    lambda args: Entity(Sprite("image to test collision with goes here", Body(0, 0, 100, 139)),
+    lambda args: Entity(Sprite("image file goes here", Body(0, 0, 0, 0)),
 
-    lambda args: Entity(Sprite("wd_gaster.png"), Body(0, 0, 38, 96)),
+    lambda args: Entity(Sprite("image file goes here"), Body(0, 0, 0, 0)),
 
-    lambda args: Entity(Teleporter(args[3], args[4], args[5]), Sprite("image for teleporter goes here")),
+    lambda args: Entity(Teleporter(args[3], args[4], args[5]), Sprite("image file for teleporter goes here")),
 
-    lambda args: Entity(SpriteAnimated("beavis.gif"), Body(0, 0, 242, 498)),
+    lambda args: Entity(SpriteAnimated("gif file goes here"), Body(0, 0, 242, 498)),
 
 ]
 
@@ -40,3 +40,4 @@ def create_entity(id, x, y, data=None):
         e.y = y * 32
 
     return e
+
