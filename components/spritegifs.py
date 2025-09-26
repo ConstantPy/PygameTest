@@ -18,6 +18,7 @@ class SpriteAnimated:
             loaded[gif] = self.gif
 
         # The following up until the for loop is me trying to figure out how to draw a rect around each frame of the gif
+        # Purely just to see the border, not for physics
         self.loaded_width, self.loaded_height = loaded.get(gif).get_width(), loaded.get(gif).get_height()
         self.gif_surfaces = self.gif.get_surfaces()
         self.gif_surfaces
@@ -43,3 +44,4 @@ class SpriteAnimated:
                 (self.entity.x, self.entity.y)
 
         screen.blit(self.gif.blit_ready(), pos)
+
