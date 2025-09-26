@@ -19,9 +19,6 @@ class Engine:
         self.animateds = []
         
         self.screen = create_screen(game_title) # The rectangle in the window itself
-        new_width = self.screen.get_width()
-        new_height = self.screen.get_height()
-        self.new_screen = update_screen(new_width, new_height)
 
         self.stages = {}
         self.current_stage = None
@@ -40,10 +37,6 @@ class Engine:
 
     def run(self):
         from core.input import keys_down
-        from core.camera import update_screen
-        new_width = self.screen.get_width()
-        new_height = self.screen.get_height()
-
 
         self.running = True
         while self.running:
@@ -54,32 +47,29 @@ class Engine:
                     keys_down.add(event.key)
                 elif event.type == pygame.KEYUP:
                     keys_down.remove(event.key)
-            
-            self.new_screen = update_screen(new_width, new_height)
 
             # Update Code
             for a in self.active_objs:
                 a.update()
 
             # Draw Code
-            if self.screen is not None:
-                self.screen.fill("black")
-            del self.screen
+
+            self.screen.fill("black")
 
             # Draw background items like the tiles
             for b in self.background_drawables:
-                b.draw(self.screen) or b.draw(self.new_screen)
+                b.draw(self.screen)
 
             # Draw the main objects
             for s in self.drawables:
-                s.draw(self.screen) or s.draw(self.new_screen)
+                s.draw(self.screen)
 
             # Draw the UI stuff
             for l in self.ui_drawables:
-                l.draw(self.screen) or l.draw(self.new_screen)
+                l.draw(self.screen)
 
             for k in self.animateds:
-                k.draw(self.screen) or k.draw(self.new_screen)
+                k.draw(self.screen)
                 self.clock.tick(self.fps)
 
             pygame.display.flip()
@@ -96,4 +86,5 @@ class Engine:
         self.drawables.clear()
         self.ui_drawables.clear()
         self.background_drawables.clear()
+
         self.animateds.clear()
